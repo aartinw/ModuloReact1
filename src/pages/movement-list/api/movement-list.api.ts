@@ -1,11 +1,9 @@
 import Axios from "axios";
 import { Movement } from "./movement-list.api-model";
 
-export const getAMovementList = (accountId: string): Promise<Movement[]> =>
-  Axios({
-    method: "get",
-    url: "http://localhost:3000/movements",
-    params: {
-      accountId: accountId,
-    },
-  }).then((response) => response.data);
+const urlMovements = `${import.meta.env.VITE_BASE_API_URL}/movements`;
+
+export const getMovements = (accountId: string): Promise<Movement[]> =>
+  Axios.get<Movement[]>(urlMovements, { params: { accountId } }).then(
+    ({ data }) => data
+  );

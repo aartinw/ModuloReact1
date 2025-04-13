@@ -3,7 +3,7 @@ import React from "react";
 import { MovementVm } from "./movement-list.vm";
 import classes from "./movement-list.page.module.css";
 import { MovementListTableComponent } from "./components";
-import { getAMovementList } from "./api";
+import { getMovements } from "./api";
 import { mapMovementListFromApiToVm } from "./movement-list.mapper";
 import { useParams } from "react-router-dom";
 import { getAccountList } from "../account-list/api";
@@ -17,7 +17,7 @@ export const MovementListPage: React.FC = () => {
 
   React.useEffect(() => {
     if (id) {
-      getAMovementList(id).then((result) =>
+      getMovements(id).then((result) =>
         setMovementList(mapMovementListFromApiToVm(result))
       );
       getAccountList().then((result) => {

@@ -26,3 +26,7 @@
 .bold {
   font-weight: 600;
 }
+
+.negativo {
+  color: red;
+}

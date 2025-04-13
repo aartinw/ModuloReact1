@@ -18,7 +18,11 @@ export const MovementListItemComponent: React.FC<Props> = (props) => {
         {movementItem.realTransaction.toLocaleDateString()}
       </span>
       <span className={classes.dataCell}>{movementItem.description}</span>
-      <span className={`${classes.dataCell} ${classes.alignRight}`}>
+      <span
+        className={`${classes.dataCell} ${classes.alignRight} ${
+          Number(movementItem.amount) < 0 && classes.negativo
+        }`}
+      >
         {movementItem.amount} €
       </span>
       <span className={`${classes.dataCell} ${classes.alignRight}`}>
